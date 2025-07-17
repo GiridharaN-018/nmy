@@ -10,7 +10,7 @@ let data=async()=>{
 }
   console.log("before function call ")
 data()
-console.log("AFter function call")*/
+console.log("AFter function call")
 
 int show =async()={
   let promise =new Promise((res,rej)=>{
@@ -31,3 +31,19 @@ int show =async()={
   }
 } 
 show()
+*/
+async function fetchQuote(){
+  try{
+    var quote =await fetch("https://www.thequoteshub.com/api/",{
+      headers:{
+        'Accept':'application/json'
+      }
+    }
+      var output=await quote.json()
+    console.log(output.text)
+  }catch(error){
+    console.log("error fetching the quote"+error)
+  }
+}
+fetchQuote()
+  
